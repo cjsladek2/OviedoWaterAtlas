@@ -13,6 +13,6 @@ WORKDIR /app
 COPY . .
 
 RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && \
-    cmake --build build --config Release
+    cmake --build build --config Release --target OWA_DSA
 
 CMD ["./build/OWA_DSA"]
