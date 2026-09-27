@@ -28,7 +28,7 @@ crow::json::wvalue formatParcel(const Parcel& parcel, const string& desired_wate
 
 int main() {
     //parse file before routes start
-    ifstream file("../DSAProject2/OviedoWaterWide.geojson");
+    ifstream file("OviedoWaterWide.geojson"); // changed file path to work with Docker environment
 
     if (!file.is_open()) {
         std::cerr << "Error: Could not open water data file." << std::endl;
