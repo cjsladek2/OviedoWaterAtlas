@@ -12,7 +12,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN cmake -S DSAProject2 -B build -DCMAKE_BUILD_TYPE=Release && \
-cmake --build build --config Release
+RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && \
+    cmake --build build --config Release
 
 CMD ["./build/OWA_DSA"]
