@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { MapContext, type MapContextType } from './MapVariablesProvider.tsx';
 import UseAnimations from "react-useanimations";
 import loading from 'react-useanimations/lib/loading';
-
+import filterIcon from '../../assets/filter.svg';
 interface RequestButtonProps{
     billing_period: number;
     num: number;
@@ -48,7 +48,7 @@ export default function RequestButton({billing_period, num, variable, method, ca
     return (
         <button className = "uk-btn uk-btn-default mb-4" onClick = {makeRequest}>
             {isLoading ? <Animation animation={loadingAnimationData} size={20}/> :
-                <img src={'../assets/filter.svg'} alt="filter" width="20" height="20" />}
+                <img src={ filterIcon } alt="filter" width="20" height="20" />}
             <p>Apply Filters</p>
         </button>
     )

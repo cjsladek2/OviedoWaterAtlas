@@ -4,6 +4,7 @@ import { MapContext, type MapContextType } from './MapVariablesProvider.tsx';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { useState, useContext, useEffect } from 'react';
+import waterIcon from "../../assets/water-icon.svg";
 import * as pmtiles from 'pmtiles';
 
 const basicStyle = "https://tiles.openfreemap.org/styles/liberty";
@@ -176,7 +177,7 @@ export default function MapBackground() {
                         >
                             <div>
                                 <div className="flex items-center gap-1 pr-2">
-                                    <img src={'../assets/water-icon.svg'} alt="water icon" width="16" height="16" />
+                                    <img src={waterIcon} alt="water icon" width="16" height="16" />
                                     <p className="uk-h4 text-secondary">{popup.properties[variable+billingPeriod].toFixed(2)} KGal</p>
                                 </div>
                                 <p className="text-primary leading-tight mt-1"><b>{popup.Address}</b></p>

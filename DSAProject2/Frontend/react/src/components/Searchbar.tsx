@@ -1,6 +1,8 @@
 import { useState, useContext, useMemo, useEffect } from 'react';
 import { MapContext, type MapContextType } from './MapVariablesProvider.tsx';
 import { useMap } from 'react-map-gl/maplibre';
+import searchIcon from "../../assets/search.svg";
+
 /* ^ useEffect will load the data in the background after the initial render
 so that the other stuff doesn't have to wait on it */
 export default function Searchbar(){
@@ -63,7 +65,7 @@ export default function Searchbar(){
     return(
         <div className = "fixed top-4 right-4 w-[30vw] min-w-[250px]">
             <img className = "absolute top-3 left-2"
-                 src={'../assets/search.svg'}
+                 src={searchIcon}
                  alt="search"
                  width="20"
                  height="20"/>
