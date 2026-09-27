@@ -7,6 +7,7 @@
 #include "HeapWrapper.h"
 #include "MinMax.h"
 #include "Deap.h"
+#include "crow/middlewares/cors.h"
 using namespace std;
 using namespace chrono;
 
@@ -37,7 +38,13 @@ int main() {
 
     json parsed_geojson = nlohmann::json::parse(file);
 
-    crow::SimpleApp app;
+    crow::App<crow::CORSHandler> app;
+
+    auto& cors = app.get_middleware<crow::CORSHandler>();  // <-- this line was missing
+
+    cors.global()
+        .origin("https://oviedowateratlas.onrender.com")
+        .methods("GET"_method);
 
     CROW_ROUTE(app, "/")([](){
         return "You have successfully reached the Crow server :D";

@@ -23,9 +23,10 @@ export default function RequestButton({billing_period, num, variable, method, ca
     const [isLoading, setLoading] = useState(false);
 
     const makeRequest = async () => {
-        const min_max_endpoint = `/api/minmax/${billing_period}/${num}/${variable}/${method}/${category}/${Number(exclude)}/${subdiv}`; //Crow server url
-        const deap_endpoint = `/api/deap/${billing_period}/${num}/${variable}/${method}/${category}/${Number(exclude)}/${subdiv}`;
-        
+        const API_BASE = import.meta.env.VITE_API_URL; // get the real URL
+        const min_max_endpoint = `${API_BASE}/minmax/${billing_period}/${num}/${variable}/${method}/${category}/${Number(exclude)}/${subdiv}`;
+        const deap_endpoint = `${API_BASE}/deap/${billing_period}/${num}/${variable}/${method}/${category}/${Number(exclude)}/${subdiv}`;
+
         try{
             setLoading(true);
 
