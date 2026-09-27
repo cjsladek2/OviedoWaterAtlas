@@ -2,6 +2,7 @@
 #include <string>
 #include <chrono> // for timing of the methods
 #include <utility> // for move()
+#include <cstdlib> // for env variables
 #include "crow.h"
 #include "HeapWrapper.h"
 #include "MinMax.h"
@@ -129,6 +130,9 @@ int main() {
         return crow::response(response);
     });
 
-    app.port(18080).multithreaded().run();
+    const char* portEnv = std::getenv("PORT");
+    int port = portEnv ? std::stoi(portEnv) : 18080;
+
+    app.port(port).multithreaded().run();
     return 0;
 }
